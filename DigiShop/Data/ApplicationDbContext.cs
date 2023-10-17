@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DigiShop.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DigiShop.Data
 {
@@ -8,5 +9,8 @@ namespace DigiShop.Data
         {
 
         }
+
+        public DbSet<Category> Categories { get; set; }
+
     }
 }
