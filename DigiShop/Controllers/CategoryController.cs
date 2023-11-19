@@ -12,16 +12,26 @@ namespace DigiShop.Controllers
         {
             _db = db;
         }
+
         public IActionResult Index()
         {
             List<Category> objCategoryList = _db.Categories.ToList();
 
             return View(objCategoryList);
         }
+     
 
         public IActionResult Create()
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(Category cateoryOrder)
+        {
+            _db.Categories.Add(cateoryOrder);
+            _db.SaveChanges();
+            return RedirectToAction("Index","Category");
+        }
+
     }
 }
