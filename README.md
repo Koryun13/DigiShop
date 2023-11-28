@@ -23,19 +23,12 @@
 5. Run the migrations to create the database tables: `dotnet ef database update`.
 6. Build and run the application.
 
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to Digishop, please follow our [contribution guidelines](CONTRIBUTING.md).
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Acknowledgments
-
-- Special thanks to the contributors who have dedicated their time to make Digishop better.
-
 ## Contact
 
-For any inquiries or issues, please contact [your-email@example.com].
+For any inquiries or issues, please contact me.
 
