@@ -9,7 +9,7 @@
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/yourusername/digishop.git`
+1. Clone the repository: `git clone https://github.com/Koryun13/digishop.git`
 2. Open the project in Visual Studio.
 3. Configure the database connection in `appsettings.json`. Update the connection string with your MSSQL server details:
 
