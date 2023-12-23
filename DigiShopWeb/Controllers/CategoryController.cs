@@ -1,8 +1,8 @@
-﻿using DigiShop.Data;
+﻿using Microsoft.AspNetCore.Mvc;
+using DigiShop.DataAccess.Data;
 using DigiShop.Models;
-using Microsoft.AspNetCore.Mvc;
 
-namespace DigiShop.Controllers;
+namespace DigiShopWeb.Controllers;
 
 public class CategoryController : Controller
 {
@@ -39,6 +39,8 @@ public class CategoryController : Controller
         {
             _db.Categories.Add(cateoryOrder);
             _db.SaveChanges();
+
+
             TempData["success"] = "Category created successfully";
             return RedirectToAction("Index");
         }

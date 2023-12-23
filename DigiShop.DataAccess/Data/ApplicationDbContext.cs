@@ -1,7 +1,7 @@
 ﻿using DigiShop.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DigiShop.Data
+namespace DigiShop.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

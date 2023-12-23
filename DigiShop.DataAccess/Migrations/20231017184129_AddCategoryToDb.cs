@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace DigiShop.Migrations
+namespace DigiShop.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class AddCategoryToDb : Migration

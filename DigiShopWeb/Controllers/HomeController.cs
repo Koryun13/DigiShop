@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace DigiShop.Controllers
+namespace DigiShopWeb.Controllers
 {
     public class HomeController : Controller
     {
