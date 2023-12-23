@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - DigiShop</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DigiShop.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DigiShopWeb.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -25,14 +25,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light " asp-area="" asp-controller="Category" asp-action="Index">Category</a>
+                            <a class="nav-link text-light " asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
                         </li>
 	                    <li class="nav-item">
-                            <a class="nav-link text-light " asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light " asp-area="Customer" asp-controller="Home" asp-action="Privacy">Privacy</a>
 	                    </li>
+                 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Content Managment
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                                </li>
+                   
+                            </ul>
+                        </li>
 	                    
 
                     </ul>
