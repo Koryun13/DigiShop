@@ -6,6 +6,7 @@ using DigiShop.DataAccess.Repository.IRepository;
 
 namespace DigiShopWeb.Areas.Admin.Controllers;
 
+[Area("Admin")]
 public class CategoryController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -73,6 +74,19 @@ public class CategoryController : Controller
             TempData["success"] = "Category edited successfully";
             return RedirectToAction("Index");
         }
+#if DEBUG
+        else
+        {
+            foreach (var modelStateKey in ModelState.Keys)
+            {
+                var modelStateVal = ModelState[modelStateKey];
+                foreach (var error in modelStateVal.Errors)
+                {
+                    Console.WriteLine($"Validation error for {modelStateKey}: {error.ErrorMessage}");
+                }
+            }
+        }
+#endif
         return View();
     }
 
