@@ -6,10 +6,13 @@ using DigiShop.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using DigiShop.Models.ViewModels;
 using Microsoft.VisualStudio.Web.CodeGeneration;
+using DigiShop.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DigiShopWeb.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = SD.Role_Admin)]
 public class ProductController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;

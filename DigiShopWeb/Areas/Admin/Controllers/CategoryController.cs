@@ -3,10 +3,13 @@ using DigiShop.DataAccess.Data;
 using DigiShop.Models;
 using DigiShop.DataAccess.Repository;
 using DigiShop.DataAccess.Repository.IRepository;
+using DigiShop.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DigiShopWeb.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = SD.Role_Admin)]
 public class CategoryController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
