@@ -15,12 +15,22 @@ namespace DigiShop.DataAccess.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }  
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+
+            modelBuilder.Entity<Company>().HasData(
+                new Company { Id = 1, Name = "Twenty Solution", StreetAddress = "new town 2/3", PhoneNumber = "3243253466", City = "Townel",State = "new Derdland", PostalCode = "Z2456"},
+                new Company { Id = 2, Name = "Twenty Solution", StreetAddress = "tegh 23/4", PhoneNumber = "5654654654", City = "Nerdow", State = "new Derdland", PostalCode = "Z2656" },
+                new Company { Id = 3, Name = "Twenty Solution", StreetAddress = "jider 23/3", PhoneNumber = "23476587", City = "Veryday", State = "new Derdland", PostalCode = "Y5323" }
+
+
+            );
 
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Action", DisplayOrder = 1 },

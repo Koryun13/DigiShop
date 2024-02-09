@@ -4,6 +4,7 @@ using DigiShop.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DigiShop.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240209101853_AddCompanyTable")]
+    partial class AddCompanyTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,11 +67,11 @@ namespace DigiShop.DataAccess.Migrations
 
             modelBuilder.Entity("DigiShop.Models.Company", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -94,41 +97,9 @@ namespace DigiShop.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Companies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            City = "Townel",
-                            Name = "Twenty Solution",
-                            PhoneNumber = "3243253466",
-                            PostalCode = "Z2456",
-                            State = "new Derdland",
-                            StreetAddress = "new town 2/3"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            City = "Nerdow",
-                            Name = "Twenty Solution",
-                            PhoneNumber = "5654654654",
-                            PostalCode = "Z2656",
-                            State = "new Derdland",
-                            StreetAddress = "tegh 23/4"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            City = "Veryday",
-                            Name = "Twenty Solution",
-                            PhoneNumber = "23476587",
-                            PostalCode = "Y5323",
-                            State = "new Derdland",
-                            StreetAddress = "jider 23/3"
-                        });
                 });
 
             modelBuilder.Entity("DigiShop.Models.Product", b =>
@@ -481,9 +452,6 @@ namespace DigiShop.DataAccess.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CompanyId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -496,8 +464,6 @@ namespace DigiShop.DataAccess.Migrations
 
                     b.Property<string>("StreetAddress")
                         .HasColumnType("nvarchar(max)");
-
-                    b.HasIndex("CompanyId");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
@@ -562,15 +528,6 @@ namespace DigiShop.DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("DigiShop.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("DigiShop.Models.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId");
-
-                    b.Navigation("Company");
                 });
 #pragma warning restore 612, 618
         }

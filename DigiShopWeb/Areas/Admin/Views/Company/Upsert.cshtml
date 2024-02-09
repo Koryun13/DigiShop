@@ -1,0 +1,93 @@
+﻿@model Company
+<div class="row pb-2">
+    <h2 class="text-primary"> @(Model.Id != 0 ? "Update":"Create" ) Product</h2>
+    <hr />
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="Id" hidden />
+
+
+    <div class="row">
+        <div class="col-10">
+
+            <div class="border p-3 mt-4">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="mb-3 row">
+                    <label>Product Name</label>
+                    <input asp-for="Name" type="text" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row">
+                    <label asp-for="StreetAddress">ISBN</label>
+                    <input asp-for="StreetAddress" type="text" class="form-control" />
+                    <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row">
+                    <label asp-for="City">Author</label>
+                    <input asp-for="City" type="text" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row">
+                    <label asp-for="State">ListPrice</label>
+                    <input asp-for="State" type="text" class="form-control" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3 row">
+                    <label asp-for="PhoneNumber">Price</label>
+                    <input asp-for="PhoneNumber" type="text" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+
+                <div class="row">
+
+
+                    <div class="col-6 col-md-3">
+                        @if (Model.Id != 0)
+                        {
+                            <button type="submit" class="btn btn-primary form-control" style="width:150px">Update</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary form-control" style="width:150px">Create</button>
+                        }
+                    </div>
+
+                    <div class="col-6 col-md-3">
+
+                        <a asp-controller="Company" asp-action="Index" class="btn btn-outline-secondary form-control" style="width:150px">
+                            Back To List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+        <script>
+            tinymce.init({
+                selector: 'textarea',
+                plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+                mergetags_list: [
+                    { value: 'First.Name', title: 'First Name' },
+                    { value: 'Email', title: 'Email' },
+                ],
+                ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+            });
+        </script>
+    }
+}
