@@ -25,7 +25,7 @@ public class CompanyController : Controller
 
     public IActionResult Index()
     {
-        List<Company> objProductList = _unitOfWork.Company.GetAll(includeProperties: "Category").ToList();
+        List<Company> objProductList = _unitOfWork.Company.GetAll().ToList();
 
         return View(objProductList);
     }

@@ -11,6 +11,8 @@ namespace DigiShop.DataAccess.Repository.IRepository
         ICategoryRepository Category { get; }
         IProductRepository Product { get; }
         ICompanyRepository Company { get; }
+        IShoppingCardRepository ShoppingCard { get;}
+        IApplicationUserRepository ApplicationUser { get; }
 
         void Save();
     }

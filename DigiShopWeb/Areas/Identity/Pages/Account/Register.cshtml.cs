@@ -54,6 +54,7 @@ namespace DigiShopWeb.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             _unitOfWork = unitOfWork;
+            
         }
 
         /// <summary>
@@ -145,7 +146,7 @@ namespace DigiShopWeb.Areas.Identity.Pages.Account
                     Text = i,
                     Value = i
                 }),
-
+                
                 CompanyList = _unitOfWork.Company.GetAll().Select(i => new SelectListItem
                 {
                 Text = i.Name,
@@ -173,13 +174,20 @@ namespace DigiShopWeb.Areas.Identity.Pages.Account
                 user.Name = Input.Name;
                 user.State = Input.State;
                 user.PostalCode = Input.PostalCode;
-                user.PhoneNumber = Input.PhoneNumber;   
+                user.PhoneNumber = Input.PhoneNumber;
 
+
+
+                if(Input.Role == SD.Role_Company)
+                {
+                    user.CompanyId = int.Parse(Input.CompanyId);
+                }
+                
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    if (@String.IsNullOrEmpty(Input.Role))
+                    if (!String.IsNullOrEmpty(Input.Role))
                     {
                         await _userManager.AddToRoleAsync(user, Input.Role);
                     }

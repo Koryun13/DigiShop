@@ -1,4 +1,5 @@
 ﻿@model Company
+
 <div class="row pb-2">
     <h2 class="text-primary"> @(Model.Id != 0 ? "Update":"Create" ) Product</h2>
     <hr />
@@ -20,7 +21,7 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label asp-for="StreetAddress">ISBN</label>
+                    <label asp-for="StreetAddress">StreetAddress</label>
                     <input asp-for="StreetAddress" type="text" class="form-control" />
                     <span asp-validation-for="StreetAddress" class="text-danger"></span>
                 </div>
